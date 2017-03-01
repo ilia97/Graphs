@@ -1,0 +1,6 @@
+D:\Projects\ТГММ\ПЗ1\ChinesePostMan\ChinesePostMan\bin\Debug\ChinesePostMan.exe.config
+D:\Projects\ТГММ\ПЗ1\ChinesePostMan\ChinesePostMan\bin\Debug\ChinesePostMan.exe
+D:\Projects\ТГММ\ПЗ1\ChinesePostMan\ChinesePostMan\bin\Debug\ChinesePostMan.pdb
+D:\Projects\ТГММ\ПЗ1\ChinesePostMan\ChinesePostMan\obj\Debug\ChinesePostMan.csprojResolveAssemblyReference.cache
+D:\Projects\ТГММ\ПЗ1\ChinesePostMan\ChinesePostMan\obj\Debug\ChinesePostMan.exe
+D:\Projects\ТГММ\ПЗ1\ChinesePostMan\ChinesePostMan\obj\Debug\ChinesePostMan.pdb
