@@ -4,3 +4,9 @@ D:\Projects\ТГММ\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.pdb
 D:\Projects\ТГММ\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.csprojResolveAssemblyReference.cache
 D:\Projects\ТГММ\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.exe
 D:\Projects\ТГММ\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.pdb
+D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.exe.config
+D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.exe
+D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.pdb
+D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.exe
+D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.pdb
+D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.csprojResolveAssemblyReference.cache
