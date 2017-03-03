@@ -13,7 +13,7 @@ namespace MinimumFrame
             var verticesCount = Convert.ToInt32(firstStr[0]);
             var edgesCount = Convert.ToInt32(firstStr[1]);
 
-            int[,] graph = new int[verticesCount, verticesCount];
+            double[,] graph = new double[verticesCount, verticesCount];
             List<Edge> edges = new List<Edge>();
 
             for (int i = 0; i < edgesCount; i++)
@@ -22,7 +22,12 @@ namespace MinimumFrame
 
                 var firstVertexNumber = Convert.ToInt32(nextStr[0]) - 1;
                 var secondVertexNumber = Convert.ToInt32(nextStr[1]) - 1;
-                var edgeWeight = Convert.ToInt32(nextStr[2]);
+                double edgeWeight = Convert.ToInt32(nextStr[2]);
+
+                if (edgeWeight == 0)
+                {
+                    edgeWeight = 0.00000000000000000001;
+                }
 
                 edges.Add(new Edge()
                 {
@@ -31,35 +36,40 @@ namespace MinimumFrame
                     Weight = edgeWeight
                 });
 
-                graph[firstVertexNumber, secondVertexNumber] = edgeWeight;
-                graph[secondVertexNumber, firstVertexNumber] = edgeWeight;
+                if (graph[firstVertexNumber, secondVertexNumber] == 0 || graph[firstVertexNumber, secondVertexNumber] > edgeWeight)
+                {
+                    graph[firstVertexNumber, secondVertexNumber] = edgeWeight;
+                    graph[secondVertexNumber, firstVertexNumber] = edgeWeight;
+                }
             }
 
-            // Console.WriteLine(PrimeAlhorithm(graph));
-            Console.WriteLine(KruskallAlhorithm(edges.OrderBy(x => x.Weight).ToList()));
+            Console.WriteLine(PrimeAlhorithm(graph));
+            // Console.WriteLine(KruskallAlhorithm(edges.OrderBy(x => x.Weight).ToList()));
         }
 
-        static double PrimeAlhorithm(int[,] graph)
+        static double PrimeAlhorithm(double[,] graph)
         {
             var verticesCount = graph.GetLength(0);
             double sum = 0;
 
             var nextEdgeNumber = 0;
 
-            List<int> selectedVertices = new List<int>();
+            bool[] selectedVertices = new bool[verticesCount];
+            int selectedVerticesCount = 0;
 
             List<Edge> edges = new List<Edge>();
             
-            while (selectedVertices.Count < verticesCount)
+            while (selectedVerticesCount < verticesCount)
             {
-                selectedVertices.Add(nextEdgeNumber);
+                selectedVertices[nextEdgeNumber] = true;
+                selectedVerticesCount++;
 
-                if (selectedVertices.Count == verticesCount)
+                if (selectedVerticesCount == verticesCount)
                     break;
 
                 for (int i = 0; i < graph.GetLength(1); i++)
                 {
-                    if (graph[nextEdgeNumber, i] > 0 && !selectedVertices.Contains(i))
+                    if (graph[nextEdgeNumber, i] > 0 && !selectedVertices[i])
                     {
                         var edge = new Edge()
                         {
@@ -72,13 +82,13 @@ namespace MinimumFrame
                     }
                 }
                 
-                var minEdgeWeight = int.MaxValue;
+                double minEdgeWeight = double.MaxValue;
                 var newNextEdgeNumber = -1;
                 var removeEdgeNumber = -1;
 
                 for (int i = 0; i < edges.Count; i++)
                 {
-                    if(selectedVertices.Contains(edges[i].NewVetrexNumber))
+                    if(selectedVertices[edges[i].NewVetrexNumber])
                     {
                         edges.RemoveAt(i);
                         i--;
@@ -99,7 +109,7 @@ namespace MinimumFrame
                 edges.RemoveAt(removeEdgeNumber);
             }
 
-            return sum;
+            return Math.Round(sum);
         }
 
         /// <summary>
@@ -180,7 +190,7 @@ namespace MinimumFrame
     {
         public int SelectedVetrexNumber { set; get; }
         public int NewVetrexNumber { set; get; }
-        public int Weight { set; get; }
+        public double Weight { set; get; }
     }
 
 //    7 11
