@@ -13,7 +13,14 @@ namespace MinimumFrame
             var verticesCount = Convert.ToInt32(firstStr[0]);
             var edgesCount = Convert.ToInt32(firstStr[1]);
 
-            double[,] graph = new double[verticesCount, verticesCount];
+            int[,] graph = new int[verticesCount, verticesCount];
+            for(int i = 0; i < graph.GetLength(0); i++)
+            {
+                for (int j = 0; j < graph.GetLength(1); j++)
+                {
+                    graph[i, j] = int.MaxValue;
+                }
+            }
             List<Edge> edges = new List<Edge>();
 
             for (int i = 0; i < edgesCount; i++)
@@ -22,12 +29,7 @@ namespace MinimumFrame
 
                 var firstVertexNumber = Convert.ToInt32(nextStr[0]) - 1;
                 var secondVertexNumber = Convert.ToInt32(nextStr[1]) - 1;
-                double edgeWeight = Convert.ToInt32(nextStr[2]);
-
-                if (edgeWeight == 0)
-                {
-                    edgeWeight = 0.00000000000000000001;
-                }
+                int edgeWeight = Convert.ToInt32(nextStr[2]);
 
                 edges.Add(new Edge()
                 {
@@ -43,10 +45,12 @@ namespace MinimumFrame
                 }
             }
 
-            Console.WriteLine(PrimeAlhorithm(graph));
+            Console.WriteLine(PrimeAlhorithmOptimized(graph));
+            // Console.WriteLine(PrimeAlhorithm(graph));
             // Console.WriteLine(KruskallAlhorithm(edges.OrderBy(x => x.Weight).ToList()));
         }
 
+        // Сложность за n * m
         static double PrimeAlhorithm(double[,] graph)
         {
             var verticesCount = graph.GetLength(0);
@@ -69,7 +73,7 @@ namespace MinimumFrame
 
                 for (int i = 0; i < graph.GetLength(1); i++)
                 {
-                    if (graph[nextEdgeNumber, i] > 0 && !selectedVertices[i])
+                    if (graph[nextEdgeNumber, i] < int.MaxValue && !selectedVertices[i])
                     {
                         var edge = new Edge()
                         {
@@ -110,6 +114,52 @@ namespace MinimumFrame
             }
 
             return Math.Round(sum);
+        }
+
+        // Сложность за n квадрат
+        static int PrimeAlhorithmOptimized(int[,] graph)
+        {
+            int sum = 0;
+            int n = graph.GetLength(0);
+
+            bool[] used = new bool[n];
+            int[] min_e = new int[n];//INF
+            for(int i = 0; i < min_e.Length; i++)
+            {
+                min_e[i] = int.MaxValue;
+            }
+
+            int[] sel_e = new int[n];//-1
+            for (int i = 0; i < sel_e.Length; i++)
+            {
+                sel_e[i] = -1;
+            }
+
+            min_e[0] = 0;
+            for (int i = 0; i < n; ++i)
+            {
+                int v = -1;
+                for (int j = 0; j < n; ++j)
+                    if (!used[j] && (v == -1 || min_e[j] < min_e[v]))
+                        v = j;
+                if (min_e[v] == int.MaxValue)
+                {
+                    return -1;
+                }
+
+                used[v] = true;
+                if (sel_e[v] != -1)
+                    sum += graph[v, sel_e[v]];
+
+                for (int to = 0; to < n; ++to)
+                    if (graph[v, to] < min_e[to])
+                    {
+                        min_e[to] = graph[v, to];
+                        sel_e[to] = v;
+                    }
+            }
+
+            return sum;
         }
 
         /// <summary>
