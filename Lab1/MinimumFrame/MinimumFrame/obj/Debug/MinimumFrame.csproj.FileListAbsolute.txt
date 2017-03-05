@@ -10,3 +10,15 @@ D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\Minimum
 D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.exe
 D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.pdb
 D:\Учёба\3 курс\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.csprojResolveAssemblyReference.cache
+E:\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.exe.config
+E:\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.exe
+E:\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.pdb
+E:\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.exe
+E:\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.pdb
+E:\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.csprojResolveAssemblyReference.cache
+F:\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.exe.config
+F:\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.exe
+F:\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.pdb
+F:\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.exe
+F:\Graphs\Lab1\MinimumFrame\MinimumFrame\bin\Debug\MinimumFrame.pdb
+F:\Graphs\Lab1\MinimumFrame\MinimumFrame\obj\Debug\MinimumFrame.csprojResolveAssemblyReference.cache
